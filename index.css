@@ -1,0 +1,116 @@
+/* ===========================================================
+   global.css — variables, reset, shared elements, buttons
+   =========================================================== */
+
+:root {
+  --navy-900: #0a1626;
+  --navy-800: #0e1e33;
+  --navy-700: #14283f;
+  --navy-600: #1b3350;
+  --navy-line: rgba(255, 255, 255, 0.08);
+  --gold: #f0a93e;
+  --gold-soft: #f5c374;
+  --white: #ffffff;
+  --ink-70: rgba(255, 255, 255, 0.7);
+  --ink-50: rgba(255, 255, 255, 0.5);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --font-head: "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-script: "Dancing Script", cursive;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--navy-900);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.mv-app {
+  background: var(--navy-900);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.section-tag {
+  color: var(--ink-50);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin: 0 0 40px;
+  padding: 0 24px;
+}
+
+/* ---------------- Buttons (shared) ---------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    background 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy-900);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 28px rgba(240, 169, 62, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
