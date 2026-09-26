@@ -1,0 +1,942 @@
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+
+.portfolio {
+  position: relative;
+  padding: 80px 48px 100px;
+  background: var(--navy-900);
+  overflow: hidden;
+}
+
+/* =========================================================
+   PORTFOLIO HEADER
+   ========================================================= */
+
+.portfolio-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 38px;
+  flex-wrap: wrap;
+}
+
+.portfolio-heading {
+  max-width: 650px;
+}
+
+.clients-tag {
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.portfolio-head h2 {
+  font-family: var(--font-head);
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1;
+  margin: 5px 0 16px;
+  color: var(--white);
+  letter-spacing: -1.5px;
+}
+
+.portfolio-head p {
+  color: var(--ink-50);
+  font-size: 14px;
+  max-width: 580px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =========================================================
+   FILTER ROW
+   ========================================================= */
+
+.filter-row {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 620px;
+}
+
+.filter-pill {
+  padding: 10px 17px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--ink-70);
+  cursor: pointer;
+  transition:
+    all 0.3s var(--ease),
+    transform 0.3s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.filter-pill.active {
+  background: var(--gold);
+  color: var(--navy-900);
+  border-color: var(--gold);
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.15);
+}
+
+/* =========================================================
+   PROJECT GRID
+   ========================================================= */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-bottom: 45px;
+}
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-card {
+  position: relative;
+  min-width: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--navy-700);
+  border: 1px solid var(--navy-line);
+  opacity: 0;
+  transform: translateY(25px);
+  animation: projectCardShow 0.7s var(--ease) forwards;
+  animation-delay: var(--delay);
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    border-color 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 193, 7, 0.25);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 193, 7, 0.04);
+}
+
+@keyframes projectCardShow {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   PROJECT THUMB
+   ========================================================= */
+
+.project-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  cursor: pointer;
+  background: #02070d;
+}
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.project-thumb img,
+.project-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.7s var(--ease),
+    opacity 0.4s ease;
+  z-index: 1;
+}
+
+.project-card:hover .project-thumb img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   HOVER VIDEO
+   ========================================================= */
+
+.project-preview-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-preview-video {
+  opacity: 1;
+}
+
+/* =========================================================
+   DARK VIDEO OVERLAY
+   ========================================================= */
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.15),
+      transparent 35%,
+      rgba(0, 0, 0, 0.8)
+    );
+}
+
+/* =========================================================
+   CATEGORY BADGE
+   ========================================================= */
+
+.project-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 7;
+
+  padding: 6px 10px;
+
+  border-radius: 30px;
+
+  background: rgba(4, 10, 18, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: var(--white);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   DURATION
+   ========================================================= */
+
+.project-thumb .duration {
+  position: absolute;
+  z-index: 7;
+
+  bottom: 14px;
+  right: 14px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  backdrop-filter: blur(8px);
+}
+
+/* =========================================================
+   PLAY BUTTON
+   ========================================================= */
+
+.play-btn {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 8;
+
+  width: 62px;
+  height: 62px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: var(--navy-900);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%) scale(0.82);
+
+  opacity: 0.9;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 0 9px rgba(255, 193, 7, 0.08),
+    0 15px 35px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.35s var(--ease),
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.project-card:hover .play-btn {
+  transform: translate(-50%, -50%) scale(1);
+  background: var(--gold);
+  color: var(--navy-900);
+
+  box-shadow:
+    0 0 0 13px rgba(255, 193, 7, 0.09),
+    0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.12) !important;
+  background: var(--white) !important;
+}
+
+/* =========================================================
+   WATCH PROJECT
+   ========================================================= */
+
+.view-project {
+  position: absolute;
+
+  left: 16px;
+  right: 16px;
+  bottom: 15px;
+
+  z-index: 8;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--white);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-card:hover .view-project {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.view-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 15px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.view-project:hover .view-arrow {
+  background: var(--gold);
+  color: var(--navy-900);
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   PROJECT META
+   ========================================================= */
+
+.project-meta {
+  padding: 17px 17px 19px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.project-meta h4 {
+  margin: 0 0 5px;
+
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+
+  color: var(--white);
+}
+
+.project-meta span:not(.project-number) {
+  font-size: 11px;
+  color: var(--ink-50);
+}
+
+.project-number {
+  flex-shrink: 0;
+
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  opacity: 0.7;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.portfolio-empty {
+  padding: 70px 20px;
+
+  text-align: center;
+
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.empty-icon {
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.portfolio-empty h3 {
+  margin: 0 0 7px;
+
+  color: var(--white);
+  font-size: 20px;
+}
+
+.portfolio-empty p {
+  margin: 0;
+
+  color: var(--ink-50);
+  font-size: 13px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.portfolio-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portfolio-view-btn span {
+  font-size: 18px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.portfolio-view-btn:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================================
+   VIDEO MODAL
+   ========================================================= */
+
+.portfolio-video-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 22px;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  backdrop-filter: blur(15px);
+
+  animation: portfolioModalFade 0.3s ease;
+}
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
+.portfolio-video-modal-content {
+  position: relative;
+
+  width: min(1050px, 96vw);
+
+  max-height: 94vh;
+
+  overflow: hidden;
+
+  background: var(--navy-900);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.75);
+
+  animation:
+    portfolioModalScale 0.4s var(--ease);
+}
+
+/* =========================================================
+   VIDEO PLAYER
+   ========================================================= */
+
+.portfolio-player {
+  width: 100%;
+
+  background: #000000;
+}
+
+.main-portfolio-video {
+  display: block;
+
+  width: 100%;
+
+  max-height: 68vh;
+
+  object-fit: contain;
+
+  background: #000000;
+}
+
+/* =========================================================
+   MODAL CLOSE
+   ========================================================= */
+
+.portfolio-modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  z-index: 20;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: rgba(0, 0, 0, 0.7);
+
+  color: var(--white);
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.portfolio-modal-close:hover {
+  transform: rotate(90deg) scale(1.08);
+
+  background: var(--gold);
+
+  color: var(--navy-900);
+}
+
+/* =========================================================
+   MODAL INFORMATION
+   ========================================================= */
+
+.portfolio-modal-info {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 35px;
+
+  padding: 24px 28px;
+}
+
+.modal-category {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.portfolio-modal-info h3 {
+  margin: 0 0 9px;
+
+  color: var(--white);
+
+  font-size: 24px;
+
+  line-height: 1.2;
+}
+
+.portfolio-modal-info p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: var(--ink-50);
+
+  font-size: 12.5px;
+
+  line-height: 1.7;
+}
+
+.modal-client {
+  min-width: 150px;
+
+  padding-left: 25px;
+
+  border-left:
+    1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-client span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--ink-50);
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.modal-client strong {
+  color: var(--white);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   MODAL ANIMATIONS
+   ========================================================= */
+
+@keyframes portfolioModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes portfolioModalScale {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1080px) {
+  .portfolio {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .portfolio-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filter-row {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 680px) {
+  .portfolio {
+    padding: 60px 20px 75px;
+  }
+
+  .portfolio-head {
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  .portfolio-head h2 {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .portfolio-head p {
+    font-size: 13px;
+  }
+
+  /* Horizontal filter scrolling */
+
+  .filter-row {
+    width: 100%;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    padding-bottom: 6px;
+
+    scrollbar-width: none;
+  }
+
+  .filter-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-pill {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  /* Single column */
+
+  .project-grid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+  }
+
+  .project-thumb {
+    aspect-ratio: 16 / 10;
+
+    border-radius: 16px;
+  }
+
+  /* Always show watch text on mobile */
+
+  .view-project {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-meta {
+    padding: 14px 14px 17px;
+  }
+
+  .project-meta h4 {
+    font-size: 14px;
+  }
+
+  .project-meta span:not(.project-number) {
+    font-size: 10px;
+  }
+
+  /* Modal */
+
+  .portfolio-video-modal {
+    padding: 10px;
+  }
+
+  .portfolio-video-modal-content {
+    width: 100%;
+
+    border-radius: 15px;
+  }
+
+  .main-portfolio-video {
+    max-height: 58vh;
+  }
+
+  .portfolio-modal-info {
+    flex-direction: column;
+
+    gap: 18px;
+
+    padding: 19px;
+  }
+
+  .portfolio-modal-info h3 {
+    font-size: 20px;
+  }
+
+  .portfolio-modal-info p {
+    font-size: 12px;
+  }
+
+  .modal-client {
+    min-width: auto;
+
+    padding:
+      15px 0 0;
+
+    border-left: 0;
+
+    border-top:
+      1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .portfolio-modal-close {
+    width: 36px;
+    height: 36px;
+
+    top: 9px;
+    right: 9px;
+
+    font-size: 23px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .portfolio {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .portfolio-head h2 {
+    font-size: 32px;
+  }
+
+  .project-thumb {
+    aspect-ratio: 16 / 10;
+  }
+
+  .play-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .project-category {
+    top: 11px;
+    left: 11px;
+
+    font-size: 8px;
+
+    padding: 5px 8px;
+  }
+
+  .project-thumb .duration {
+    right: 11px;
+    bottom: 11px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    animation: none;
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+  .portfolio-video-modal,
+  .portfolio-video-modal-content {
+    animation: none;
+  }
+
+  .project-card,
+  .project-thumb img,
+  .play-btn,
+  .filter-pill,
+  .project-preview-video {
+    transition: none;
+  }
+}
+
+

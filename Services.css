@@ -1,0 +1,653 @@
+/* ===========================================================
+   Services.css
+   =========================================================== */
+
+.services {
+  padding: 60px 48px 40px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+}
+
+.services h2 {
+  font-family: var(--font-head);
+  font-size: 26px;
+  margin: 0 0 8px;
+}
+
+.services-sub {
+  color: var(--ink-50);
+  font-size: 13.5px;
+  margin: 0 0 24px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.service-card {
+  background: var(--navy-700);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.service-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+.service-card h4 {
+  font-size: 13px;
+  margin: 0 0 3px;
+  font-weight: 600;
+}
+
+.service-card span {
+  font-size: 11px;
+  color: var(--ink-50);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.tool-card {
+  background: var(--navy-700);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.tool-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--white);
+}
+
+.tool-card h4 {
+  font-size: 12.5px;
+  margin: 0 0 3px;
+  font-weight: 600;
+}
+
+.tool-card span {
+  font-size: 10.5px;
+  color: var(--ink-50);
+}
+
+.skills h3 {
+  font-size: 15px;
+  margin: 0 0 18px;
+}
+
+.skill-row {
+  margin-bottom: 14px;
+}
+
+.skill-row .skill-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin-bottom: 6px;
+  color: var(--ink-70);
+}
+
+.skill-bar {
+  height: 6px;
+  background: var(--navy-600);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  border-radius: 4px;
+  transform-origin: left;
+  animation: growBar 1.2s var(--ease) forwards;
+}
+
+@keyframes growBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.services-side {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.together-card {
+  background: var(--navy-700);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.together-card .sig {
+  font-family: var(--font-script);
+  font-size: 26px;
+  color: var(--gold-soft);
+  line-height: 1.2;
+}
+
+.together-card p {
+  color: var(--ink-50);
+  font-size: 12.5px;
+  margin-top: 10px;
+}
+
+.contact-card {
+  background: var(--navy-700);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.contact-card h3 {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-70);
+  margin-bottom: 12px;
+}
+
+.contact-row svg {
+  color: var(--gold);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.social-row {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 18px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--navy-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 13px;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.social-icon:hover {
+  background: var(--gold);
+  color: var(--navy-900);
+  transform: translateY(-3px);
+}
+
+.contact-card .btn-primary {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 1080px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
+  .service-grid,
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .services {
+    padding: 40px 20px;
+  }
+}
+
+/* ===========================================================
+   SKILLS CIRCLE SECTION
+   =========================================================== */
+
+.skills {
+  width: 100%;
+}
+
+.skills h3 {
+  font-family: var(--font-head);
+  font-size: 24px;
+  margin: 0 0 30px;
+}
+
+/* ===========================================================
+   CIRCLE GRID
+   =========================================================== */
+
+.skills-circle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* ===========================================================
+   SKILL CARD
+   =========================================================== */
+
+.skill-circle-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 22px 12px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+
+  animation: skillCardActive 3s ease-in-out infinite;
+}
+
+/* ===========================================================
+   CONTINUOUS ACTIVE POP
+   =========================================================== */
+
+.skill-circle-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.skill-circle-card:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.skill-circle-card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.skill-circle-card:nth-child(4) {
+  animation-delay: 1.05s;
+}
+
+@keyframes skillCardActive {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.025);
+  }
+}
+
+.skill-circle-card:hover {
+  transform: translateY(-10px) scale(1.05) !important;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  animation-play-state: paused;
+}
+
+/* ===========================================================
+   CIRCLE
+   =========================================================== */
+
+.skill-circle {
+  --progress: 50%;
+
+  width: 135px;
+  height: 135px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  background:
+    conic-gradient(
+      var(--skill-color) var(--progress),
+      rgba(255, 255, 255, 0.08) var(--progress)
+    );
+
+  animation:
+    circleRotateIn 1.5s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards,
+    circleGlow 2.5s ease-in-out 1.5s infinite;
+}
+
+/* ===========================================================
+   CIRCLE INNER
+   =========================================================== */
+
+.skill-circle::before {
+  content: "";
+
+  position: absolute;
+  inset: 7px;
+
+  border-radius: 50%;
+
+  background: #07111f;
+
+  z-index: 0;
+}
+
+.skill-circle-inner {
+  position: relative;
+
+  z-index: 1;
+
+  width: 105px;
+  height: 105px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.07),
+      rgba(0, 0, 0, 0.12)
+    );
+}
+
+.skill-circle-inner span {
+  font-family: var(--font-head);
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  color: var(--skill-color);
+
+  text-shadow:
+    0 0 12px var(--skill-color);
+
+  animation: percentagePulse 2s ease-in-out infinite;
+}
+
+/* ===========================================================
+   CIRCLE ANIMATION
+   =========================================================== */
+
+@keyframes circleRotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.4);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(8deg) scale(1.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes circleGlow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(
+        0 0 5px
+        color-mix(
+          in srgb,
+          var(--skill-color) 40%,
+          transparent
+        )
+      );
+  }
+
+  50% {
+    filter:
+      drop-shadow(
+        0 0 18px
+        color-mix(
+          in srgb,
+          var(--skill-color) 75%,
+          transparent
+        )
+      );
+  }
+}
+
+@keyframes percentagePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* ===========================================================
+   SKILL COLORS
+   =========================================================== */
+
+.skill-circle-card.video {
+  --skill-color: #ff4d6d;
+}
+
+.skill-circle-card.motion {
+  --skill-color: #9b5cff;
+}
+
+.skill-circle-card.graphic {
+  --skill-color: #00d4ff;
+}
+
+.skill-circle-card.story {
+  --skill-color: #ffc857;
+}
+
+/* ===========================================================
+   CARD TEXT
+   =========================================================== */
+
+.skill-circle-card h4 {
+  margin: 18px 0 5px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-align: center;
+}
+
+.skill-circle-card p {
+  margin: 0;
+
+  font-size: 11px;
+
+  color: var(--ink-50);
+
+  text-align: center;
+}
+
+/* ===========================================================
+   HOVER CIRCLE
+   =========================================================== */
+
+.skill-circle-card:hover .skill-circle {
+  transform: scale(1.08);
+
+  filter:
+    drop-shadow(
+      0 0 22px
+      var(--skill-color)
+    );
+}
+
+.skill-circle-card:hover .skill-circle-inner span {
+  transform: scale(1.15);
+}
+
+/* ===========================================================
+   TABLET
+   =========================================================== */
+
+@media (max-width: 1000px) {
+  .skills-circle-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .skill-circle {
+    width: 125px;
+    height: 125px;
+  }
+
+  .skill-circle-inner {
+    width: 97px;
+    height: 97px;
+  }
+}
+
+/* ===========================================================
+   MOBILE
+   =========================================================== */
+
+@media (max-width: 600px) {
+  .skills-circle-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+  }
+
+  .skill-circle-card {
+    padding: 18px 8px;
+
+    border-radius: 16px;
+  }
+
+  .skill-circle {
+    width: 105px;
+    height: 105px;
+  }
+
+  .skill-circle::before {
+    inset: 6px;
+  }
+
+  .skill-circle-inner {
+    width: 81px;
+    height: 81px;
+  }
+
+  .skill-circle-inner span {
+    font-size: 21px;
+  }
+
+  .skill-circle-card h4 {
+    font-size: 12px;
+    margin-top: 14px;
+  }
+
+  .skill-circle-card p {
+    font-size: 9.5px;
+  }
+}
+
+/* ===========================================================
+   SMALL MOBILE
+   =========================================================== */
+
+@media (max-width: 380px) {
+  .skills-circle-grid {
+    gap: 10px;
+  }
+
+  .skill-circle {
+    width: 92px;
+    height: 92px;
+  }
+
+  .skill-circle-inner {
+    width: 70px;
+    height: 70px;
+  }
+
+  .skill-circle-inner span {
+    font-size: 18px;
+  }
+}
+
+/* ===========================================================
+   REDUCE MOTION
+   =========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-circle-card,
+  .skill-circle,
+  .skill-circle-inner span {
+    animation: none !important;
+    transition: none !important;
+  }
+}

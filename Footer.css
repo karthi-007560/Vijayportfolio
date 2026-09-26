@@ -1,0 +1,28 @@
+/* ===========================================================
+   Footer.css
+   =========================================================== */
+
+.mv-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 48px 30px;
+  font-size: 12px;
+  color: var(--ink-50);
+  border-top: 1px solid var(--navy-line);
+}
+
+.mv-footer .foot-links {
+  display: flex;
+  gap: 18px;
+}
+
+.mv-footer .foot-links span:hover {
+  color: var(--gold);
+  cursor: pointer;
+}
+
+@media (max-width: 680px) {
+  .mv-footer {
+    padding: 18px 20px 26px;
+  }
+}

@@ -1,0 +1,464 @@
+/* ===========================================================
+   NAVBAR
+   =========================================================== */
+
+.mv-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 48px;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 9999;
+
+  background: rgba(10, 22, 38, 0.92);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--navy-line);
+}
+
+
+/* ===========================================================
+   LOGO
+   =========================================================== */
+
+.mv-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  background: transparent;
+  border: none;
+
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.mv-logo-mark {
+  width: 26px;
+  height: 26px;
+
+  color: var(--gold);
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.mv-logo:hover .mv-logo-mark {
+  transform: rotate(-8deg) scale(1.1);
+
+  filter:
+    drop-shadow(
+      0 0 8px var(--gold)
+    );
+}
+
+
+.mv-logo-text .name {
+  font-family: var(--font-script);
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  display: block;
+
+  color: var(--white);
+}
+
+
+.mv-logo-text .role {
+  font-size: 9px;
+
+  letter-spacing: 0.14em;
+
+  color: var(--ink-50);
+
+  display: block;
+
+  margin-top: 2px;
+}
+
+
+/* ===========================================================
+   DESKTOP NAV
+   =========================================================== */
+
+.desktop-nav {
+  display: block;
+}
+
+
+.mv-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 36px;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.mv-links li {
+  list-style: none;
+}
+
+
+.mv-links li button {
+  position: relative;
+
+  background: transparent;
+
+  border: none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  font-family: var(--font-body);
+
+  font-size: 14px;
+
+  color: var(--ink-70);
+
+  padding: 8px 0;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.mv-links li button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0%;
+
+  height: 2px;
+
+  background: var(--gold);
+
+  border-radius: 10px;
+
+  transition:
+    width 0.3s ease;
+}
+
+
+.mv-links li button:hover {
+  color: var(--white);
+
+  transform: translateY(-2px);
+}
+
+
+.mv-links li button:hover::after,
+.mv-links li button.active::after {
+  width: 100%;
+}
+
+
+.mv-links li button.active {
+  color: var(--white);
+
+  font-weight: 600;
+}
+
+
+/* ===========================================================
+   MOBILE MENU BUTTON
+   =========================================================== */
+
+.mobile-menu-btn {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 9px;
+
+  background: transparent;
+
+  border: 1px solid var(--navy-line);
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.mobile-menu-btn span {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+
+  background: var(--white);
+
+  border-radius: 10px;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* Hamburger -> X */
+
+.mobile-menu-btn.open span:nth-child(1) {
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+.mobile-menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.open span:nth-child(3) {
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
+
+/* ===========================================================
+   MOBILE NAV
+   =========================================================== */
+
+.mobile-nav {
+  display: none;
+}
+
+.mv-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 48px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 99999;
+
+  background: rgba(10, 22, 38, 0.94);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--navy-line);
+
+  box-sizing: border-box;
+}
+
+/* ===========================================================
+   TABLET
+   =========================================================== */
+
+@media (max-width: 900px) {
+
+  .mv-nav {
+    padding: 18px 30px;
+  }
+
+  .mv-links {
+    gap: 22px;
+  }
+
+  .mv-links li button {
+    font-size: 13px;
+  }
+}
+
+
+/* ===========================================================
+   MOBILE
+   =========================================================== */
+
+@media (max-width: 680px) {
+
+  .mv-nav {
+    padding: 15px 20px;
+
+    flex-wrap: wrap;
+  }
+
+
+  /* Hide desktop navigation */
+
+  .desktop-nav {
+    display: none;
+  }
+
+
+  /* Show hamburger */
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+
+  /* Mobile dropdown */
+
+  .mobile-nav {
+    display: block;
+
+    width: 100%;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+
+  .mobile-nav.show {
+    max-height: 400px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    margin-top: 15px;
+  }
+
+
+  .mobile-nav ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 10px 0 5px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
+  .mobile-nav li {
+    width: 100%;
+  }
+
+
+  .mobile-nav button {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--ink-70);
+
+    font-family: var(--font-body);
+
+    font-size: 14px;
+
+    text-align: left;
+
+    padding: 12px 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      padding-left 0.25s ease;
+  }
+
+
+  .mobile-nav button:hover,
+  .mobile-nav button.active {
+    color: var(--white);
+
+    background:
+      rgba(255, 255, 255, 0.06);
+
+    padding-left: 16px;
+  }
+
+
+  .mobile-nav button.active {
+    border-left: 2px solid var(--gold);
+  }
+
+
+  /* Logo responsive */
+
+  .mv-logo-text .name {
+    font-size: 20px;
+  }
+
+  .mv-logo-text .role {
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .mv-logo-mark {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+
+/* ===========================================================
+   SMALL MOBILE
+   =========================================================== */
+
+@media (max-width: 400px) {
+
+  .mv-nav {
+    padding: 14px 15px;
+  }
+
+  .mv-logo-text .name {
+    font-size: 18px;
+  }
+
+  .mv-logo-text .role {
+    font-size: 7px;
+  }
+}
